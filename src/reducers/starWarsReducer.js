@@ -1,4 +1,6 @@
-import {FETCHING, SUCCESS, FAILURE} "../actions";
+
+import { FETCHING_DATA, SUCCESS_DATA, FAILURE_DATA } from "../actions";
+
 const initialState = {
   characters: [],
   fetching: false,
@@ -7,20 +9,20 @@ const initialState = {
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCHING:
+    case FETCHING_DATA:
       return {
         ...state,
         fetching: true,
         error: ''
       }
-    case SUCCESS:
+    case SUCCESS_DATA:
       return {
         ...state,
         fetching: false,
         error: '',
         characters: action.payload
       }
-    case SUCCESS:
+    case FAILURE_DATA:
       return {
         ...state,
         fetching: false,
