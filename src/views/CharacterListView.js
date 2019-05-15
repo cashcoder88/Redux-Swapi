@@ -15,7 +15,7 @@ class CharacterListView extends React.Component {
 
   render() {
     if (this.props.fetching) {
-      'CURRENTLY FETCHING YOUR DATA, PATIENCE IS KEY <3'
+      <h1>CURRENTLY FETCHING YOUR DATA, PATIENCE IS KEY</h1>
     }
     return (
       <div className="CharactersList_wrapper">
@@ -31,7 +31,9 @@ const mapStateToProps = state => {
   console.log(state)
   return {
     characters: state.charsReducer.characters,
-  fetching: state.charsReducer.fetching}
+    error: state.charsReducer.error,
+    fetching: state.charsReducer.fetching
+  }
 }
 export default connect(
   mapStateToProps,

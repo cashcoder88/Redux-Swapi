@@ -13,7 +13,7 @@ export const FAILURE_DATA = 'FAILURE_DATA';
 export const getChars = () => dispatch => {
     dispatch({ type: FETCHING_DATA });
     const request = axios.get('https://swapi.co/api/people/');
-    request.then(({ data }) =>{
+    request.then(({ data }) => {
         console.log(data);
         dispatch({type: SUCCESS_DATA, payload: data.results})
     })
@@ -22,13 +22,3 @@ export const getChars = () => dispatch => {
         dispatch({type: FAILURE_DATA, payload: err.response})
     })
 }
-
-/* function myCleverAction = () => dispatch => {
-  const request = axios.get('https://someRadUrlAPI.com/api/coolness);
-  request.then(({data}) => {
-    dispatch({type: GET_COOL_THING, payload: data.things});
-  })
-  .catch(err => {
-    dispatch({type: ERROR_GETTING_THINGS, error: err});
-  });
-}; */
